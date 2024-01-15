@@ -2,10 +2,10 @@ import { useState } from "react";
 
 function App() {
   const [title, setTitle] = useState("");
-  function handleInput (e){
+  async function handleInput (e){
     e.preventDefault();
 
-    fetch('http://localhost:3000/post',{
+    await fetch('http://localhost:3000/post',{
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -14,6 +14,7 @@ function App() {
         "Content-Type": 'application/json',
       }
     })
+    setTitle('')
 
   }
   return (
